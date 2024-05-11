@@ -1,0 +1,32 @@
+### Read all Products
+GET http://localhost:4004/odata/v4/admin/Products
+
+### Read Supplier for a Product
+GET http://localhost:4004/admin/Products(102)/supplier
+
+### Read all Products for a Supplier
+GET http://localhost:4004/admin/Suppliers(303)/products
+
+### Read ID,name,price for all Products
+GET http://localhost:4004/admin/Products?$select=name,price
+
+### Search for 'Phone' in Products
+GET http://localhost:4004/admin/Products?$search=Phone
+
+### Read all Suppliers. For each Supplier, show assigned Products
+GET http://localhost:4004/admin/Suppliers?$expand=products
+
+### Read all Orders
+GET http://localhost:4004/odata/v4/admin/Orders
+
+### Read all Orders with respective OrderItems
+GET http://localhost:4004/odata/v4/admin/Orders?$expand=Items
+
+### Read number of Suppliers
+GET http://localhost:4004/admin/Suppliers/$count
+
+### Read all Suppliers and show number of Suppliers in @odata.count
+GET http://localhost:4004/admin/Suppliers?$count=true
+
+### Read all OrderItems (should fail)
+GET http://localhost:4004/admin/OrderItems

@@ -1,0 +1,5 @@
+### Delete Supplier
+DELETE http://localhost:4004/admin/Suppliers(401) 
+
+### Delete Order with OrderItems
+DELETE http://localhost:4004/admin/Orders(4c1ea77c-ce95-439e-92d6-6f14cd35797b)

@@ -1,0 +1,34 @@
+### Update Product with invalid price format
+PATCH   http://localhost:4004/odata/v4/admin/Products(101) 
+Content-Type: application/json;IEEE754Compatible=true
+
+{ 
+    "price": "169.5511"
+}
+
+### Update Product with invalid currency_code format
+PATCH   http://localhost:4004/odata/v4/admin/Products(101) 
+Content-Type: application/json
+
+{ 
+    "currency_code": "EURO"
+}
+
+### Create Product with non-existing Supplier
+POST http://localhost:4004/odata/v4/admin/Products
+Content-Type: application/json
+
+{
+  "ID": 70012,
+  "name": "Impossible Product",
+  "supplier_ID": 90909090
+}
+
+### Create Product without name
+POST http://localhost:4004/odata/v4/admin/Products
+Content-Type: application/json
+
+{
+  "ID": 70012,
+  "supplier_ID": 301
+}
