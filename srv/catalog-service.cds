@@ -4,7 +4,8 @@ service CatalogService @(path: '/shop') {
     @readonly
     entity Products as
         projection on domain.Products {
-            *, retail @(title: '{i18n>consumerPrice}')
+            *,
+            retail @(title: '{i18n>consumerPrice}')
         }
         excluding {
             createdBy,
@@ -16,5 +17,21 @@ service CatalogService @(path: '/shop') {
             supplier
         };
 
-    entity Orders   as projection on domain.Orders;
+    entity Orders @(restrict: [
+        {
+            grant: [
+                'READ',
+                'WRITE'
+            ],
+            to   : 'admin'
+        },
+        {
+            grant: 'READ',
+            where: 'createdBy = $user'
+        },
+        {
+            grant: 'WRITE',
+            to   : 'authenticated-user'
+        }
+    ])              as projection on domain.Orders;
 }

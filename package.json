@@ -14,5 +14,19 @@
   },
   "scripts": {
     "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "Donald": {
+            "roles": [
+              "admin"
+            ]
+          }
+        }
+      }
+    }
   }
 }
