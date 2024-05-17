@@ -22,4 +22,13 @@ module.exports = (srv) => {
 			}
 		}
 	})
+	srv.before('READ', 'Products', async (req) => {
+		const profile = cds.env.requires.actualprofile;
+		const prof = cds.env.for('NODE_ENV');
+		const { para1 } = cds.env.for('myapp');
+	  console.log(profile, para1);
+		if( process.env.NODE_ENV === 'undefined' || process.env.NODE_ENV === 'development')
+		  console.log('development');
+	})
+	
 }

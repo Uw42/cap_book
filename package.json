@@ -17,16 +17,22 @@
   },
   "cds": {
     "requires": {
-      "auth": {
-        "kind": "mocked",
-        "users": {
-          "Donald": {
-            "roles": [
-              "admin"
-            ]
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "Donald": {
+              "roles": [
+                "admin"
+              ]
+            }
           }
-        }
+        },
+        "actualprofile": "development"
       }
     }
+  },
+  "myapp": {
+    "para1": "value1"
   }
 }
